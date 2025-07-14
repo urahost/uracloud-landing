@@ -216,18 +216,16 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
                 variant="primary"
                 className="block md:hidden w-full"
               >
-                Login
+                Connexion
               </Button>
               <Button
-                data-cal-namespace={calOptions.namespace}
-                data-cal-link={`manu-arora-vesr9s/chat-with-manu-demo`}
-                data-cal-config={`{"layout":"${calOptions.layout}"}`}
-                as="button"
+                as={Link}
                 onClick={() => setOpen(false)}
+                href={CONSTANTS.REGISTER_LINK}
                 variant="primary"
                 className="block md:hidden w-full"
               >
-                Book a call
+                Inscription
               </Button>
             </motion.div>
           )}
