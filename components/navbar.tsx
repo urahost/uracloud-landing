@@ -30,12 +30,12 @@ export const Navbar = () => {
       link: "/#features",
     },
     {
-      name: "Tarifs",
-      link: "/#pricing",
+      name: "Blog",
+      link: "https://blog.urahost.fr/",
     },
     {
       name: "Contact",
-      link: "/#contact",
+      link: "https://discord.gg/urahost",
     },
   ];
 
@@ -55,7 +55,7 @@ export const Navbar = () => {
   });
 
   return (
-    <motion.div ref={ref} className="w-full fixed top-0 inset-x-0 z-50">
+    <motion.div ref={ref} className="w-full fixed top-0 inset-x-0 z-1000">
       <DesktopNav visible={visible} navItems={navItems} />
       <MobileNav visible={visible} navItems={navItems} />
     </motion.div>
@@ -123,48 +123,14 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
       </motion.div>
       <div className="flex items-center gap-4">
         <ModeToggle />
-
-        <AnimatePresence mode="popLayout" initial={false}>
-          {!visible && (
-            <motion.div
-              initial={{
-                x: 100,
-                opacity: 0,
-              }}
-              animate={{
-                x: 0,
-                opacity: [0, 0, 1],
-              }}
-              exit={{
-                x: 100,
-                opacity: [0, 0, 0],
-              }}
-              transition={{
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-            >
-              <Button
+        <Button
                 as={Link}
                 href={CONSTANTS.LOGIN_LINK}
                 variant="secondary"
-                className="hidden md:block "
+                className="hidden md:block"
               >
                 Connexion
               </Button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <Button
-          data-cal-namespace={calOptions.namespace}
-          data-cal-link={CONSTANTS.CALCOM_LINK}
-          data-cal-config={`{"layout":"${calOptions.layout}"}`}
-          as="button"
-          variant="primary"
-          className="hidden md:block "
-        >
-          Démo gratuite
-        </Button>
       </div>
     </motion.div>
   );

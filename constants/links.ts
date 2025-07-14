@@ -1,5 +1,6 @@
 export const CONSTANTS = {
-  LOGIN_LINK: "https://cloud.urahost.fr/",
+  LOGIN_LINK: "https://dash.urahost.fr/",
+  REGISTER_LINK: "https://dash.urahost.fr/register",
   CALCOM_NAMESPACE: "demo-uracloud",
   CALCOM_BRAND_COLOR: "#000000",
   CALCOM_HIDE_EVENT_TYPE_DETAILS: false,

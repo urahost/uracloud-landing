@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import createGlobe from "cobe";
+import { Logo } from "./logo";
 
 export function Features() {
   return (
@@ -14,11 +15,11 @@ export function Features() {
     >
       <Header>
         <h2 className="font-sans text-bold text-xl text-center md:text-4xl w-fit mx-auto font-bold tracking-tight text-neutral-8000 dark:text-neutral-100 text-neutral-800">
-          Le déploiement simplifié
+          Votre plateforme tout-en-un
         </h2>
       </Header>
       <p className="max-w-lg text-sm text-neutral-600 text-center mx-auto mt-4 dark:text-neutral-400">
-        Déployez facilement, on s&apos;occupe de la technique.
+Hébergement web et serveurs de jeux, gérés pour vous.
       </p>
       <div className="mt-20  grid cols-1 md:grid-cols-5 gap-4 md:auto-rows-[25rem] max-w-7xl mx-auto">
         <Card className="flex flex-col justify-between md:col-span-3">
@@ -28,22 +29,22 @@ export function Features() {
           <CardContent className="h-40">
             <CardTitle>Déploiement en 1 clic</CardTitle>
             <CardDescription>
-              Mettez votre application en ligne instantanément, sans configuration.
+              Sites web, applications et serveurs de jeux déployés instantanément.
             </CardDescription>
           </CardContent>
         </Card>
 
         <Card className="flex flex-col justify-between md:col-span-2">
           <CardContent className="h-40">
-            <CardTitle>Gestion intuitive</CardTitle>
+            <CardTitle>Gestion unifiée</CardTitle>
             <CardDescription>
-              Administrez vos apps simplement, sans étapes compliquées.
+              Administrez vos sites web et serveurs de jeux depuis un tableau de bord unique.
             </CardDescription>
           </CardContent>
           <CardSkeletonBody>
             <div className="w-full h-full p-4 rounded-lg bg-neutral-100 border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700 ml-6 mt-2">
               <Image
-                src="https://assets.aceternity.com/pro/dashboard.webp"
+                src="/images/fateatures-image.png"
                 alt="Dashboard"
                 width={500}
                 height={500}
@@ -55,9 +56,9 @@ export function Features() {
 
         <Card className="flex flex-col justify-between md:col-span-2">
           <CardContent className="h-40">
-            <CardTitle>Hébergement ultra-rapide</CardTitle>
+            <CardTitle>Performance optimisée</CardTitle>
             <CardDescription>
-              Notre réseau distribué garantit la rapidité partout dans le monde.
+              Infrastructure haute performance pour vos sites et serveurs de jeux avec latence minimale.
             </CardDescription>
           </CardContent>
           <CardSkeletonBody>
@@ -66,18 +67,18 @@ export function Features() {
         </Card>
         <Card className="flex flex-col justify-between md:col-span-3">
           <CardContent className="h-40">
-            <CardTitle>Génération de contenu</CardTitle>
+            <CardTitle>Serveurs de jeux préconfigurés</CardTitle>
             <CardDescription>
-              Besoin de textes ? On génère le contenu pour votre site.
+              Minecraft, CS2, Rust, ARK et plus encore. Lancez votre serveur en quelques clics.
             </CardDescription>
           </CardContent>
           <CardSkeletonBody>
-            <div className="w-full h-full p-4 rounded-lg bg-neutral-100 border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700 ml-6 mt-2">
+            <div className="w-full h-full p-2 rounded-lg bg-neutral-100 border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700 ml-6 mt-2">
               <Image
-                src="https://assets.aceternity.com/pro/dashboard.webp"
+                src="/images/fetaures-image-3.png"
                 alt="Dashboard"
-                width={500}
-                height={500}
+                width={1920}
+                height={1080}
                 className="w-full object-cover rounded-lg "
               />
             </div>
@@ -297,8 +298,7 @@ export const SkeletonOne = () => {
           }}
           className="flex flex-col justify-center items-center"
         >
-          <AWSLogo />
-          <p className="text-[8px] bg-transparent ">your site is live ✨</p>
+          <p className="text-[10px] bg-transparent ">your site is live ✨</p>
         </Container>
       </div>
     </div>

@@ -3,6 +3,9 @@ import React from "react";
 import { IconCheck, IconPlus } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
+import { useRouter } from "next/navigation";
+import { CONSTANTS } from "@/constants/links";
+
 
 export enum plan {
   hobby = "hobby",
@@ -23,71 +26,102 @@ export type Plan = {
   onClick: () => void;
 };
 
-const plans: Array<Plan> = [
-  {
-    id: plan.hobby,
-    name: "Découverte",
-    price: 0,
-    subText: "/mois",
-    currency: "€",
-    features: [
-      "2 sites/applications inclus",
-      "Déploiement d'applications populaires (WordPress, n8n, Appwrite, Grafana, etc.)",
-      "Bases de données prêtes à l'emploi (Postgres, MariaDB, MongoDB, MySQL, Redis...)",
-      "Sauvegardes automatiques incluses",
-      "Hébergement rapide et sécurisé",
-      "Support par email",
-    ],
-    buttonText: "Commencer gratuitement",
-    onClick: () => {
-      console.log("Commencer gratuitement");
-    },
-  },
-  {
-    id: plan.starter,
-    name: "Essentiel",
-    price: 12,
-    subText: "/mois",
-    currency: "€",
-    featured: true,
-    features: [
-      "12 sites/applications inclus",
-      "Déploiement d'applications populaires (WordPress, n8n, Appwrite, Grafana, etc.)",
-      "Bases de données prêtes à l'emploi (Postgres, MariaDB, MongoDB, MySQL, Redis...)",
-      "Sauvegardes automatiques incluses",
-      "Hébergement rapide et sécurisé",
-      "Support prioritaire",
-    ],
-    buttonText: "Choisir Essentiel",
-    additionalFeatures: [],
-    onClick: () => {
-      console.log("Choisir Essentiel");
-    },
-  },
-  {
-    id: plan.pro,
-    name: "Pro",
-    price: 24,
-    subText: "/mois",
-    currency: "€",
-    features: [
-      "25 sites/applications inclus",
-      "Déploiement d'applications populaires (WordPress, n8n, Appwrite, Grafana, etc.)",
-      "Bases de données prêtes à l'emploi (Postgres, MariaDB, MongoDB, MySQL, Redis...)",
-      "Sauvegardes automatiques incluses",
-      "Hébergement rapide et sécurisé",
-      "Support premium 7j/7",
-      "Assistant IA pour vous guider et automatiser vos déploiements",
-    ],
-    additionalFeatures: [],
-    buttonText: "Choisir Pro",
-    onClick: () => {
-      console.log("Choisir Pro");
-    },
-  },
-];
 
 export function Pricing() {
+  const router = useRouter()
+  const plans: Array<Plan> = [
+    {
+      id: plan.hobby,
+      name: "Découverte",
+      price: 0,
+      subText: "/mois",
+      currency: "€",
+      features: [
+        "2 sites/applications inclus",
+        "Déploiement d'applications populaires (WordPress, n8n, Appwrite, Grafana, etc.)",
+        "Bases de données prêtes à l'emploi (Postgres, MariaDB, MongoDB, MySQL, Redis...)",
+        "Pas d'accès aux serveurs de jeux",
+        "Formations gratuites incluses",
+        "Hébergement rapide et sécurisé",
+        "Support par email",
+      ],
+      buttonText: "Commencer gratuitement",
+      onClick: () => {
+        router.push(CONSTANTS.LOGIN_LINK)
+      },
+    },
+    {
+      id: plan.starter,
+      name: "Standard",
+      price: 14.99,
+      subText: "/mois",
+      currency: "€",
+      featured: true,
+      features: [
+        "20 sites/applications inclus",
+        "Déploiement d'applications populaires (WordPress, n8n, Appwrite, Grafana, etc.)",
+        "Bases de données prêtes à l'emploi (Postgres, MariaDB, MongoDB, MySQL, Redis...)",
+        "2 serveurs de jeux (bientôt disponible)",
+        "4 GB RAM + 4 vCPU par serveur de jeux",
+        "Jusqu'à 10 joueurs simultanés",
+        "Formations gratuites incluses",
+        "Hébergement rapide et sécurisé",
+        "Support prioritaire",
+      ],
+      buttonText: "Choisir Standard",
+      additionalFeatures: [],
+      onClick: () => {
+        router.push(CONSTANTS.LOGIN_LINK)
+      },
+    },
+    {
+      id: plan.pro,
+      name: "Premium",
+      price: 24.99,
+      subText: "/mois",
+      currency: "€",
+      features: [
+        "30 sites/applications inclus",
+        "Déploiement d'applications populaires (WordPress, n8n, Appwrite, Grafana, etc.)",
+        "Bases de données prêtes à l'emploi (Postgres, MariaDB, MongoDB, MySQL, Redis...)",
+        "5 serveurs de jeux (bientôt disponible)",
+        "8 GB RAM + 8 vCPU par serveur de jeux",
+        "Jusqu'à 50 joueurs simultanés",
+        "Mods et plugins personnalisés",
+        "Formations gratuites incluses",
+        "IA de génération de sites avec déploiement instantané",
+        "Assistants IA avancés pour automatisation",
+        "Hébergement rapide et sécurisé",
+        "Support premium 7j/7",
+      ],
+      additionalFeatures: [],
+      buttonText: "Choisir Premium",
+      onClick: () => {
+        router.push(CONSTANTS.LOGIN_LINK)
+      },
+    },
+    {
+      id: "pay-as-you-go",
+      name: "Pay-as-you-go",
+      price: "À la carte",
+      subText: "",
+      currency: "",
+      features: [
+        "Facturation uniquement selon l'usage",
+        "Sites web : 3.99€/mois par site actif",
+        "Serveurs de jeux : à partir de 3.99€/mois",
+        "Applications : 2.99€/mois par application",
+        "Bases de données : 4.99€/mois par base",
+        "Formations gratuites incluses",
+        "Pas de limite sur le nombre de services",
+        "Support par ticket",
+      ],
+      buttonText: "Bientôt disponible",
+      onClick: () => {
+        // Disabled for now
+      },
+    },
+  ];
   return (
     <div
       id="pricing"
@@ -112,9 +146,14 @@ export function Pricing() {
           "max-w-7xl mx-auto  md:grid-cols-2 xl:grid-cols-3"
         )}
       >
-        {plans.map((tier, tierIdx) => {
+        {plans.slice(0, 3).map((tier, tierIdx) => {
           return <Card plan={tier} key={tier.id} onClick={tier.onClick} />;
         })}
+      </div>
+      
+      {/* Pay-as-you-go plan displayed horizontally */}
+      <div className="max-w-7xl mx-auto mt-8">
+        <HorizontalCard plan={plans[3]} onClick={plans[3].onClick} />
       </div>
     </div>
   );
@@ -224,6 +263,69 @@ const Step = ({
       </div>
       <div className={cn("font-medium text-black text-sm dark:text-white")}>
         {children}
+      </div>
+    </div>
+  );
+};
+
+const HorizontalCard = ({ plan, onClick }: { plan: Plan; onClick: () => void }) => {
+  return (
+    <div
+      className={cn(
+        "p-1 sm:p-4 md:p-4 rounded-3xl bg-gray-50 dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800"
+      )}
+    >
+      <div className="flex flex-col md:flex-row gap-4 h-full justify-between items-center">
+        <div
+          className={cn(
+            "p-4 bg-white dark:bg-neutral-800 rounded-2xl shadow-input flex-1 dark:shadow-[0px_-1px_0px_0px_var(--neutral-700)]"
+          )}
+        >
+          <div className="flex justify-between items-start ">
+            <div className="flex gap-2 flex-col">
+              <p
+                className={cn("font-medium text-lg text-black dark:text-white")}
+              >
+                {plan.name}
+              </p>
+            </div>
+          </div>
+          <div className="mt-8 ">
+            <div className="flex items-end">
+              <span
+                className={cn(
+                  "text-lg font-bold text-neutral-500 dark:text-neutral-200"
+                )}
+              >
+                {plan.currency}
+              </span>
+              <div className="flex items-start gap-2">
+                <span
+                  className={cn(
+                    "text-3xl md:text-7xl font-bold dark:text-neutral-50 text-neutral-800"
+                  )}
+                >
+                  {plan?.price}
+                </span>
+              </div>
+              <span
+                className={cn(
+                  "text-base font-normal text-neutral-500 dark:text-neutral-200 mb-1 md:mb-2"
+                )}
+              >
+                {plan.subText}
+              </span>
+            </div>
+          </div>
+          <Button variant="gradient" className="w-full mt-10" onClick={onClick} disabled={plan.id === "pay-as-you-go"}>
+            {plan.buttonText}
+          </Button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4 flex-2">
+          {plan.features.map((feature, idx) => (
+            <Step key={idx}>{feature}</Step>
+          ))}
+        </div>
       </div>
     </div>
   );

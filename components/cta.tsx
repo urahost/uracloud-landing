@@ -37,11 +37,11 @@ export function CTA() {
       <div className="max-w-7xl mx-auto 0 flex flex-col md:flex-row justify-between items-center w-full">
         <div className="flex flex-col">
           <motion.h2 className="text-black dark:text-white text-xl text-center md:text-left md:text-3xl font-bold mx-auto md:mx-0 max-w-xl ">
-            Hébergez vos applications <br />
+            Hébergez vos sites & serveurs <br />
             sans effort, dès aujourd&apos;hui.
           </motion.h2>
           <p className="max-w-md mt-8 text-center md:text-left text-sm md:text-base mx-auto md:mx-0 text-neutral-600 dark:text-neutral-400">
-            Profitez d&apos;une mise en ligne ultra-rapide et fiable. Notre infrastructure garantit la disponibilité de vos sites 24h/24, 7j/7.
+            Profitez d&apos;une mise en ligne ultra-rapide pour vos sites web. Serveurs de jeux bientôt disponibles pour une expérience gaming optimale.
           </p>
           <FeaturedImages
             textClassName="lg:text-left text-center"

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Balancer from "react-wrap-balancer";
 import { useCalEmbed } from "@/app/hooks/useCalEmbed";
 import { CONSTANTS } from "@/constants/links";
+import { HeroPill } from "./ui/hero-pill";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,11 +67,11 @@ export function Hero() {
           repeatDelay: 3,
         }}
       />
-
+    <HeroPill href="https://dash.urahost.fr" isExternal={true} label="Nouveau panel disponible" className="z-999" />
       <div className="text-balance relative z-20 mx-auto mb-4 mt-4 max-w-4xl text-center text-3xl font-semibold tracking-tight text-gray-700 dark:text-neutral-300 md:text-7xl">
         <Balancer>
           <motion.h2>
-            {"Mettez votre site en ligne en 1 clic".split(" ").map((word, index) => (
+            {"Hébergement web & serveurs de jeux en 1 clic".split(" ").map((word, index) => (
               <motion.span
                 initial={{
                   filter: "blur(10px)",
@@ -101,7 +102,7 @@ export function Hero() {
         transition={{ duration: 0.2, delay: 0.5 }}
         className="relative z-20 mx-auto mt-4 max-w-lg px-4 text-center text-base/6 text-gray-600 dark:text-gray-200"
       >
-        Notre plateforme vous permet de mettre en ligne vos sites en quelques secondes, sans prise de tête.
+Déployez vos sites web et lancez vos serveurs de jeux préférés en quelques clics, sans configuration technique.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -119,8 +120,8 @@ export function Hero() {
       >
         <div className="rounded-[24px] border border-neutral-200 bg-white p-2 dark:border-neutral-700 dark:bg-black">
           <Image
-            src="https://assets.aceternity.com/pro/dashboard-new.webp"
-            alt="header"
+            src="/images/header-image.png"
+            alt="header image"
             width={1920}
             height={1080}
             className="rounded-[20px]"
