@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Uracloud is a French-language Next.js landing page for a cloud hosting platform. The app allows users to deploy applications and databases with one-click deployments. The site features modern animations, dark mode support, and Cal.com integration for scheduling.
+Urahost is a French-language Next.js landing page for a cloud hosting platform. The app allows users to deploy applications and databases with one-click deployments. The site features modern animations, dark mode support, and Cal.com integration for scheduling.
 
 ## Development Commands
 

@@ -29,7 +29,7 @@ export function Footer() {
         </div>
         <div className="flex flex-row justify-between items-center w-full">
           <div className="mt-2">
-            &copy; Uracloud 2024. Tous droits réservés.
+            &copy; Urahost 2024. Tous droits réservés.
           </div>
           <div className="flex flex-row gap-6">
             {legals.map((legal, idx) => (

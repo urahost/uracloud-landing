@@ -23,7 +23,7 @@ export const Logo = () => {
       height={30}
       className="hidden dark:flex"
     />
-      <span className="font-medium text-black dark:text-white">Uracloud</span>
+      <span className="font-medium text-black dark:text-white">Urahost</span>
     </Link></>
   );
 };

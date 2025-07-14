@@ -338,7 +338,7 @@ export default function ConditionsGenerales() {
                     </p>
                   </div>
                   <div className="bg-gray-50 dark:bg-neutral-800 p-4 rounded-lg">
-                    <h4 className="font-medium text-neutral-800 dark:text-neutral-200 mb-2">Par Uracloud</h4>
+                    <h4 className="font-medium text-neutral-800 dark:text-neutral-200 mb-2">Par Urahost</h4>
                     <p className="text-sm text-neutral-600 dark:text-neutral-400">
                       Suspension ou résiliation en cas de violation des CGU, 
                       avec préavis de 7 jours sauf urgence.
