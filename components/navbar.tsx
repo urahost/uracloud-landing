@@ -13,6 +13,8 @@ import { Button } from "./button";
 import { Logo } from "./logo";
 import { ModeToggle } from "./mode-toggle";
 import { CONSTANTS } from "@/constants/links";
+import { Feedback } from "./feedback";
+import { DISCORD_WEBHOOK_URL } from "@/constants/discord";
 
 interface NavbarProps {
   navItems: {
@@ -94,7 +96,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
         minWidth: visible ? "850px" : "800px",
       }}
       className={cn(
-        "hidden lg:flex flex-row  self-start bg-transparent dark:bg-transparent items-center justify-between py-2 max-w-7xl mx-auto px-4 rounded-full relative z-[60] w-full",
+        "hidden lg:flex flex-row  self-start bg-transparent dark:bg-transparent items-center justify-between py-2 max-w-7xl mx-auto px-4 rounded-full relative z-[60] w-full theme-transition",
         visible && "bg-white/80 dark:bg-neutral-950/80"
       )}
     >
@@ -127,14 +129,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
         >
           Connexion
         </Button>
-        <Button
-          as={Link}
-          href={CONSTANTS.REGISTER_LINK}
-          variant="primary"
-          className="hidden md:block text-xs px-3 py-1.5"
-        >
-          Inscription
-        </Button>
+        <Feedback label="Feedback" webhookUrl={DISCORD_WEBHOOK_URL} />
       </div>
     </motion.div>
   );
@@ -212,15 +207,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
               >
                 Connexion
               </Button>
-              <Button
-                as={Link}
-                onClick={() => setOpen(false)}
-                href={CONSTANTS.REGISTER_LINK}
-                variant="primary"
-                className="w-full"
-              >
-                Inscription
-              </Button>
+              <Feedback label="Feedback" webhookUrl={DISCORD_WEBHOOK_URL} />
             </motion.div>
           )}
         </AnimatePresence>

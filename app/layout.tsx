@@ -4,8 +4,10 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { Feedback } from "@/components/feedback";
 import { ThemeProvider } from "@/context/providers";
 import { Analytics } from "@vercel/analytics/next"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,12 +31,16 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
+          disableTransitionOnChange={true}
+          storageKey="urahost-theme"
         >
-          <Navbar />
-          {children}
-          <Analytics />
-          <Footer />
+          <div className="min-h-screen w-full max-w-full overflow-x-hidden flex flex-col">
+            <Navbar />
+            <main className="flex-1 w-full max-w-full">{children}</main>
+            <Toaster />
+            <Analytics />
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
