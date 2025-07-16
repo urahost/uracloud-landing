@@ -67,7 +67,7 @@ export function Hero() {
           repeatDelay: 3,
         }}
       />
-    <HeroPill href="https://dash.urahost.fr" isExternal={true} label="Nouveau panel disponible" className="z-999" />
+    <HeroPill href="https://blog.urahost.fr/blog/urahost-new-panel" isExternal={true} label="Nouveau panel disponible" className="z-999" />
       <div className="text-balance relative z-20 mx-auto mb-4 mt-4 max-w-4xl text-center text-3xl font-semibold tracking-tight text-gray-700 dark:text-neutral-300 md:text-7xl">
         <Balancer>
           <motion.h2>

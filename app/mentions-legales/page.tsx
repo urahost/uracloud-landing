@@ -1,95 +1,199 @@
+"use client";
 import { Container } from "@/components/container";
-
-export const metadata = {
-  title: "Mentions légales | Urahost",
-  description: "Mentions légales et informations légales d'Urahost",
-};
+import { motion } from "framer-motion";
+import { IconBuilding, IconPhone, IconMail, IconShield, IconCertificate, IconGavel } from "@tabler/icons-react";
 
 export default function MentionsLegales() {
   return (
     <Container className="py-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-100">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-6"
+          >
+            <IconGavel className="w-8 h-8 text-white" />
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl font-bold mb-4 text-neutral-900 dark:text-neutral-100"
+          >
             Mentions légales
-          </h1>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-neutral-600 dark:text-neutral-400"
+          >
             Informations légales et obligations réglementaires d&apos;Urahost
-          </p>
+          </motion.p>
         </div>
         
         <div className="space-y-12">
-          <section className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-800">
-            <h2 className="text-3xl font-bold mb-8 text-neutral-900 dark:text-neutral-100 border-b border-neutral-200 dark:border-neutral-700 pb-4">
-              Informations légales
-            </h2>
+          <motion.section 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-shadow duration-300"
+          >
+            <div className="flex items-center gap-4 mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-700">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                <IconBuilding className="w-5 h-5 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+                Informations légales
+              </h2>
+            </div>
             
             <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">
-                  Éditeur du site
-                </h3>
-                <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Raison sociale :</span> Bourez Bastien</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Forme juridique :</span> Microentreprise</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">SIRET :</span> 925 398 075 00018</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">SIREN :</span> 925 398 075</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">N° TVA :</span> FR14925398075</p>
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+                <div className="flex items-center gap-3 mb-4">
+                  <IconBuilding className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <h3 className="text-xl font-semibold text-blue-900 dark:text-blue-100">
+                    Éditeur du site
+                  </h3>
+                </div>
+                <div className="space-y-3 text-blue-800 dark:text-blue-200">
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                    <p><span className="font-medium">Raison sociale :</span> Bourez Bastien</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                    <p><span className="font-medium">Forme juridique :</span> Microentreprise</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                    <p><span className="font-medium">SIRET :</span> 925 398 075 00018</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                    <p><span className="font-medium">SIREN :</span> 925 398 075</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                    <p><span className="font-medium">N° TVA :</span> FR14925398075</p>
+                  </div>
                 </div>
               </div>
               
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">
-                  Contact
-                </h3>
-                <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Adresse :</span><br />16 rue gustave courbet<br />59300 aulnoy-lez-valenciennes</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Email :</span> contact@urahost.fr</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Téléphone :</span> 03 74 01 41 49</p>
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800">
+                <div className="flex items-center gap-3 mb-4">
+                  <IconMail className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <h3 className="text-xl font-semibold text-green-900 dark:text-green-100">
+                    Contact
+                  </h3>
+                </div>
+                <div className="space-y-3 text-green-800 dark:text-green-200">
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2"></div>
+                    <div>
+                      <p className="font-medium">Adresse :</p>
+                      <p className="text-sm">16 rue gustave courbet<br />59300 aulnoy-lez-valenciennes</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                    <p><span className="font-medium">Email :</span> contact@urahost.fr</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                    <p><span className="font-medium">Téléphone :</span> 03 74 01 41 49</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+          </motion.section>
 
-          <section className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-800">
+          <motion.section 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-shadow duration-300"
+          >
             <div className="grid md:grid-cols-3 gap-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">
-                  Direction
-                </h3>
-                <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Directeur :</span> Bourez Bastien</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Email :</span> contact@urahost.fr</p>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800">
+                <div className="flex items-center gap-3 mb-4">
+                  <IconCertificate className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-100">
+                    Direction
+                  </h3>
+                </div>
+                <div className="space-y-2 text-purple-800 dark:text-purple-200">
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
+                    <p><span className="font-medium">Directeur :</span> Bourez Bastien</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
+                    <p><span className="font-medium">Email :</span> contact@urahost.fr</p>
+                  </div>
                 </div>
               </div>
               
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">
-                  Hébergement
-                </h3>
-                <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Hébergeur :</span> Vercel Inc.</p>
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">Localisation :</span> États-Unis</p>
-                  <p><a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400">Site officiel</a></p>
+              <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-6 border border-orange-200 dark:border-orange-800">
+                <div className="flex items-center gap-3 mb-4">
+                  <IconShield className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                  <h3 className="text-xl font-semibold text-orange-900 dark:text-orange-100">
+                    Hébergement
+                  </h3>
+                </div>
+                <div className="space-y-2 text-orange-800 dark:text-orange-200">
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                    <p><span className="font-medium">Hébergeur :</span> Vercel Inc.</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                    <p><span className="font-medium">Localisation :</span> États-Unis</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                    <p><a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-orange-600 hover:text-orange-800 dark:text-orange-400 font-medium underline hover:no-underline">Site officiel</a></p>
+                  </div>
                 </div>
               </div>
               
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-200">
-                  Assurance
-                </h3>
-                <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                  <p><span className="font-medium text-neutral-800 dark:text-neutral-200">RC Pro :</span> Hiscox</p>
-                  <p className="text-sm">Couverture des activités d&apos;hébergement et services numériques</p>
+              <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-xl p-6 border border-teal-200 dark:border-teal-800">
+                <div className="flex items-center gap-3 mb-4">
+                  <IconShield className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+                  <h3 className="text-xl font-semibold text-teal-900 dark:text-teal-100">
+                    Assurance
+                  </h3>
+                </div>
+                <div className="space-y-2 text-teal-800 dark:text-teal-200">
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-teal-500 rounded-full"></div>
+                    <p><span className="font-medium">RC Pro :</span> Hiscox</p>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-1"></div>
+                    <p className="text-sm">Couverture des activités d&apos;hébergement et services numériques</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </section>
+          </motion.section>
 
-          <section className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-800">
-            <h2 className="text-3xl font-bold mb-8 text-neutral-900 dark:text-neutral-100 border-b border-neutral-200 dark:border-neutral-700 pb-4">
-              Dispositions légales
-            </h2>
+          <motion.section 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="bg-white dark:bg-neutral-900 rounded-2xl p-8 shadow-sm border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-shadow duration-300"
+          >
+            <div className="flex items-center gap-4 mb-8 pb-4 border-b border-neutral-200 dark:border-neutral-700">
+              <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+                <IconGavel className="w-5 h-5 text-white" />
+              </div>
+              <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+                Dispositions légales
+              </h2>
+            </div>
             
             <div className="space-y-8">
               <div>
@@ -140,7 +244,7 @@ export default function MentionsLegales() {
                 </p>
               </div>
             </div>
-          </section>
+          </motion.section>
         </div>
       </div>
     </Container>

@@ -12,7 +12,6 @@ import React, { useRef, useState } from "react";
 import { Button } from "./button";
 import { Logo } from "./logo";
 import { ModeToggle } from "./mode-toggle";
-import { useCalEmbed } from "@/app/hooks/useCalEmbed";
 import { CONSTANTS } from "@/constants/links";
 
 interface NavbarProps {
@@ -26,15 +25,23 @@ interface NavbarProps {
 export const Navbar = () => {
   const navItems = [
     {
-      name: "Fonctionnalités",
+      name: "Accueil",
+      link: "/",
+    },
+    {
+      name: "Services",
       link: "/#features",
+    },
+    {
+      name: "Tarifs",
+      link: "/#pricing",
     },
     {
       name: "Blog",
       link: "https://blog.urahost.fr/",
     },
     {
-      name: "Contact",
+      name: "Support",
       link: "https://discord.gg/urahost",
     },
   ];
@@ -65,17 +72,6 @@ export const Navbar = () => {
 const DesktopNav = ({ navItems, visible }: NavbarProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
-  const calOptions = useCalEmbed({
-    namespace: CONSTANTS.CALCOM_NAMESPACE,
-    styles: {
-      branding: {
-        brandColor: CONSTANTS.CALCOM_BRAND_COLOR,
-      },
-    },
-    hideEventTypeDetails: CONSTANTS.CALCOM_HIDE_EVENT_TYPE_DETAILS,
-    layout: CONSTANTS.CALCOM_LAYOUT,
-  });
-
   return (
     <motion.div
       onMouseLeave={() => {
@@ -86,7 +82,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "40%" : "100%",
+        width: visible ? "55%" : "100%",
         y: visible ? 20 : 0,
       }}
       transition={{
@@ -95,7 +91,7 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
         damping: 50,
       }}
       style={{
-        minWidth: "800px",
+        minWidth: visible ? "850px" : "800px",
       }}
       className={cn(
         "hidden lg:flex flex-row  self-start bg-transparent dark:bg-transparent items-center justify-between py-2 max-w-7xl mx-auto px-4 rounded-full relative z-[60] w-full",
@@ -103,11 +99,11 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
       )}
     >
       <Logo />
-      <motion.div className="lg:flex flex-row flex-1 absolute inset-0 hidden items-center justify-center space-x-2 lg:space-x-2 text-sm text-zinc-600 font-medium hover:text-zinc-800 transition duration-200">
+      <motion.div className="lg:flex flex-row flex-1 absolute inset-0 hidden items-center justify-center space-x-1 lg:space-x-2 text-sm text-zinc-600 font-medium hover:text-zinc-800 transition duration-200">
         {navItems.map((navItem: any, idx: number) => (
           <Link
             onMouseEnter={() => setHovered(idx)}
-            className="text-neutral-600 dark:text-neutral-300 relative px-4 py-2"
+            className="text-neutral-600 dark:text-neutral-300 relative px-2 py-2"
             key={`link=${idx}`}
             href={navItem.link}
           >
@@ -121,16 +117,24 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
           </Link>
         ))}
       </motion.div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
         <ModeToggle />
         <Button
-                as={Link}
-                href={CONSTANTS.LOGIN_LINK}
-                variant="secondary"
-                className="hidden md:block"
-              >
-                Connexion
-              </Button>
+          as={Link}
+          href={CONSTANTS.LOGIN_LINK}
+          variant="secondary"
+          className="hidden md:block text-xs px-3 py-1.5"
+        >
+          Connexion
+        </Button>
+        <Button
+          as={Link}
+          href={CONSTANTS.REGISTER_LINK}
+          variant="primary"
+          className="hidden md:block text-xs px-3 py-1.5"
+        >
+          Inscription
+        </Button>
       </div>
     </motion.div>
   );
@@ -138,17 +142,6 @@ const DesktopNav = ({ navItems, visible }: NavbarProps) => {
 
 const MobileNav = ({ navItems, visible }: NavbarProps) => {
   const [open, setOpen] = useState(false);
-
-  const calOptions = useCalEmbed({
-    namespace: "chat-with-manu-demo",
-    styles: {
-      branding: {
-        brandColor: "#000000",
-      },
-    },
-    hideEventTypeDetails: false,
-    layout: "month_view",
-  });
 
   return (
     <>
@@ -204,17 +197,18 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
                   key={`link=${idx}`}
                   href={navItem.link}
                   onClick={() => setOpen(false)}
-                  className="relative text-neutral-600 dark:text-neutral-300"
+                  className="relative text-neutral-600 dark:text-neutral-300 py-2"
                 >
                   <motion.span className="block">{navItem.name} </motion.span>
                 </Link>
               ))}
+              <div className="w-full border-t border-neutral-200 dark:border-neutral-800 my-4"></div>
               <Button
                 as={Link}
                 onClick={() => setOpen(false)}
                 href={CONSTANTS.LOGIN_LINK}
-                variant="primary"
-                className="block md:hidden w-full"
+                variant="secondary"
+                className="w-full mb-2"
               >
                 Connexion
               </Button>
@@ -223,7 +217,7 @@ const MobileNav = ({ navItems, visible }: NavbarProps) => {
                 onClick={() => setOpen(false)}
                 href={CONSTANTS.REGISTER_LINK}
                 variant="primary"
-                className="block md:hidden w-full"
+                className="w-full"
               >
                 Inscription
               </Button>

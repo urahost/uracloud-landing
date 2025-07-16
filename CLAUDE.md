@@ -28,50 +28,70 @@ npm run lint
 
 ### Tech Stack
 - **Framework**: Next.js 14 with App Router
-- **Styling**: Tailwind CSS 4.x
-- **Animations**: Framer Motion
-- **UI Components**: Custom components with Tailwind
-- **Theme**: Dark/light mode via next-themes
+- **Styling**: Tailwind CSS 4.x with custom CSS variables
+- **Animations**: Framer Motion with complex collision detection
+- **UI Components**: Custom components with class-variance-authority
+- **Theme**: Dark/light mode via next-themes with system preference
 - **Icons**: Tabler Icons, Lucide React, React Icons
 - **Calendar**: Cal.com embed integration
+- **Analytics**: Vercel Analytics integration
+- **Utilities**: clsx + tailwind-merge via `cn()` utility
 
 ### Project Structure
 - `app/` - Next.js App Router pages and layouts
 - `components/` - Reusable UI components
+- `components/ui/` - Base UI components
 - `context/` - React context providers (theme)
 - `lib/` - Utility functions (mainly Tailwind class merging)
-- `constants/` - Application constants and links
+- `constants/` - Application constants and external links
 - `app/hooks/` - Custom React hooks
+- `public/images/` - Static images and assets
 
-### Key Components
-- **Layout**: Global layout with theme provider, navbar, and footer
-- **Hero**: Landing page hero with animated beams and collision effects
-- **Theme Provider**: Wraps next-themes for dark/light mode switching
-- **Cal.com Integration**: Custom hook for embedding Cal.com calendars
+### Key Architecture Patterns
+
+**Layout System**: Global layout (`app/layout.tsx`) wraps all pages with:
+- Theme provider with system preference detection
+- Navbar and Footer components
+- Vercel Analytics integration
+- Inter font optimization
+
+**Animation System**: Complex Framer Motion setup in Hero component:
+- Multiple animated beams with collision detection
+- Real-time collision coordinate tracking
+- Explosion effects on beam-container collision
+- Grid background animations with CSS custom properties
+
+**Theme System**: 
+- Uses next-themes with `ThemeProvider` from `context/providers.tsx`
+- CSS custom properties for both light/dark modes
+- System preference detection with manual override
+
+**Cal.com Integration**: 
+- Custom `useCalEmbed` hook in `app/hooks/useCalEmbed.ts`
+- Configuration via `CONSTANTS` in `constants/links.ts`
+- Support for custom branding, layouts, and event type hiding
 
 ### Styling Conventions
 - Uses `cn()` utility from `lib/utils.ts` for conditional class merging
-- Tailwind classes follow semantic naming
+- Tailwind classes with semantic naming
 - Dark mode variants using `dark:` prefix
-- Custom CSS variables for complex animations
+- CSS custom properties for complex animations and theming
+- Extensive use of gradients and backdrop blur effects
 
 ### TypeScript Configuration
 - Strict mode enabled
 - Path aliases: `@/*` maps to root directory
 - ES2017 target for broad browser compatibility
+- Includes Next.js plugin for optimized builds
 
-## Cal.com Integration
+### Image Optimization
+- Next.js Image component with remote patterns for:
+  - cp.urahost.fr (control panel)
+  - images.unsplash.com
+  - assets.aceternity.com
+- Static images in `public/images/` directory
 
-The project includes Cal.com embedding via the `useCalEmbed` hook located in `app/hooks/useCalEmbed.ts`. Configuration constants should be defined in `constants/links.ts`.
-
-## Animations
-
-Heavy use of Framer Motion for:
-- Page transitions
-- Hero section beam animations with collision detection
-- Text reveal animations
-- Component entrance effects
-
-## Theme System
-
-Uses next-themes with system preference detection. Theme provider is configured in `context/providers.tsx` and applied globally in the root layout.
+### External Integrations
+- **Dashboard**: https://dash.urahost.fr (login/register)
+- **Cal.com**: Embedded calendar with namespace "demo-Urahost" 
+- **Vercel Analytics**: Usage tracking and performance monitoring

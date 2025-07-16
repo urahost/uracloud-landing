@@ -15,20 +15,8 @@ import {
 import { BsStarFill } from "react-icons/bs";
 import { HiArrowRight } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
-import { useCalEmbed } from "@/app/hooks/useCalEmbed";
-import { CONSTANTS } from "@/constants/links";
 
 export function CTA() {
-  const calOptions = useCalEmbed({
-    namespace: CONSTANTS.CALCOM_NAMESPACE,
-    styles: {
-      branding: {
-        brandColor: CONSTANTS.CALCOM_BRAND_COLOR,
-      },
-    },
-    hideEventTypeDetails: CONSTANTS.CALCOM_HIDE_EVENT_TYPE_DETAILS,
-    layout: CONSTANTS.CALCOM_LAYOUT,
-  });
   return (
     <div
       id="contact"
@@ -50,15 +38,15 @@ export function CTA() {
             showStars
           />
         </div>
-        <button
-          data-cal-namespace={calOptions.namespace}
-          data-cal-link={CONSTANTS.CALCOM_LINK}
-          data-cal-config={`{"layout":"${calOptions.layout}"}`}
-          className="flex space-x-2 items-center group text-base px-4 py-2 rounded-lg bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]"
+        <a
+          href="https://discord.gg/urahost"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex space-x-2 items-center group text-base px-4 py-2 rounded-lg bg-gradient-to-b from-blue-500 to-blue-700 text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset] hover:shadow-lg transition-shadow duration-200"
         >
           <span>Prendre rendez-vous</span>
           <HiArrowRight className="text-white group-hover:translate-x-1 stroke-[1px] h-3 w-3 mt-0.5 transition-transform duration-200" />
-        </button>
+        </a>
       </div>
     </div>
   );
